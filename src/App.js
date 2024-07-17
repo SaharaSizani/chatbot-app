@@ -3,6 +3,9 @@ import './App.css';
 
 function App() {
   const [input, setInput] = useState('');
+  const [showPopup, setShowPopup] = useState(true); // State to control pop-up visibility
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // State to track login status
+  const [showHeader, setShowHeader] = useState(false); // State to control header visibility
   const mainDivRef = useRef(null);
 
   const trigger = [
@@ -147,15 +150,72 @@ function App() {
     window.speechSynthesis.speak(u);
   }
 
+  // Function to handle login
+  function handleLogin() {
+    setIsLoggedIn(true);
+    setShowPopup(false);
+    setShowHeader(true);
+  }
+
+  // Function to handle sign up
+  function handleSignUp() {
+    // Implement sign-up logic
+    setIsLoggedIn(true);
+    setShowPopup(false);
+    setShowHeader(true);
+  }
+
+  // Function to handle staying logged out
+  function handleStayLoggedOut() {
+    setShowPopup(false);
+    setShowHeader(true);
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>Chatbot</h1>
-      </header>
+      {/* Popup */}
+      {showPopup && (
+        <div className="popup">
+          <h2>Thank you for trying MK Chatbot.</h2>
+          <p>Chose an option either Login,Sign up to get smarter responses,upload files and images and more.</p>
+          {!isLoggedIn && (
+            <div className="popup-buttons">
+              <button onClick={handleLogin}>Login</button>
+              <button onClick={handleSignUp}>Sign Up</button>
+              <button className="link-style" onClick={handleStayLoggedOut}>Stay Logged Out</button>
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* AppHeader */}
+      {showHeader && (
+        <AppHeader />
+      )}
+
       <div id="main" ref={mainDivRef}>
-        <div><input id="input" type="text" placeholder="Say something..." value={input} onChange={(e) => setInput(e.target.value)} autoComplete="off" /></div>
+        <div>
+          <input
+            id="input"
+            type="text"
+            placeholder="Say something..."
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            autoComplete="off"
+          />
+        </div>
       </div>
     </div>
+  );
+}
+
+function AppHeader() {
+  return (
+    <header className="App-header">
+          <img src="g" alt="Icon" className="app-icon" />
+      <h1>Chatbot</h1>
+      {/* Additional header content */}
+    </header>
   );
 }
 

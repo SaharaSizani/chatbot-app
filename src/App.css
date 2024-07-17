@@ -1,82 +1,75 @@
-body {
-    color: #421;
-    font-weight: bold;
-    font-size: 18px;
-    font-family: "Courier New";
-    background: rgb(223, 242, 247);
-  }
-  
-  body::after {
-    content: "";
-    background-repeat: repeat-y;
-    opacity: 0.5;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    position: absolute;
-    z-index: -1;
-  }
-  
-  span {
-    color: rgb(36, 17, 119);
-  }
-  
-  ::-webkit-input-placeholder {
-    color: #711;
-  }
-  
-  #main {
+/* App.css */
+
+.App {
+  background-image: url('chatbot.jpg');
+  background-size: cover;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+  .popup {
     position: fixed;
-    top: 40%;
-    right: 200px;
-    border: 0px solid #421;
-    padding: 40px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    text-align: center;
   }
   
-  #main div {
-    margin: 10px;
+  .popup p {
+    font-size: 18px;
+    margin-bottom: 20px;
   }
   
-  #input {
-    border: 0;
-    padding: 5px;
-  }
-  .App {
-    font-family: sans-serif;
-  }
-  
-  .App-header {
-    background-color: black;
-    color: white;
+  .popup-buttons {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    gap: 10px; /* Space between buttons */
+  }
+  
+  .popup button {
+    margin: 5px;
     padding: 10px 20px;
-  }
-  
-  .header-left {
-    display: flex;
-  }
-  
-  .header-right {
-    display: flex;
-    align-items: center;
-  }
-  
-  .header-right img {
-    width: 50px; /* Adjust width as per your logo size */
-    height: auto;
-  }
-  
-  .header-left button,
-  .header-right button {
-    margin-left: 10px;
-    padding: 8px 16px;
-    border: none;
-    background-color: transparent;
-    color: white;
-    cursor: pointer;
     font-size: 16px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
   }
   
+  .popup button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Styling for link-like button */
+  .popup button.link-style {
+    background-color: transparent;
+    color: #007bff;
+    border: none;
+    padding: 0;
+    font-size: inherit;
+    text-decoration: underline;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  .popup button.link-style:hover {
+    color: #0056b3;
+    text-decoration: none; /* Remove underline on hover */
+  }
+ 
+  .app-icon {
+    width: 50px; /* Adjust size as needed */
+    height: 50px; /* Adjust size as needed */
+    margin-right: 10px;
+  }
   
