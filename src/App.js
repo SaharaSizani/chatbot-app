@@ -208,15 +208,11 @@ function App() {
     </div>
   );
 }
-
 function AppHeader() {
   return (
     <header className="App-header">
-          <img src="g" alt="Icon" className="app-icon" />
-      <h1>Chatbot</h1>
       {/* Additional header content */}
     </header>
   );
 }
-
 export default App;
